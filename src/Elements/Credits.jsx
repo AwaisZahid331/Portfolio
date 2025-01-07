@@ -13,7 +13,7 @@ const Credits = () => {
             className="hover:underline"
             href="https://www.linkedin.com/in/mubeen-jawed-7b5062231/"
           >
-            Mubeen jawed
+            Awais Zahid
           </a>
         </p>
       </div>
