@@ -127,7 +127,7 @@ For more information, read [hosting on Netlify](https://create-react-app.dev/doc
 
 
 ## For the Future
-If you can help us with these. Please don't hesitate to open a [pull request](https://github.com/Mubeen-jawed/Portfolio-Website/).
+If you can help us with these. Please don't hesitate to open a [pull request]().
 
 - Connect with LinkedIn to get Summary, Skills, Education and Experience
 
@@ -139,7 +139,7 @@ If you can help us with these. Please don't hesitate to open a [pull request](ht
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Mubeen-jawed"><img src="" width="100px;" alt=""/><br /><sub><b>Mubeen Jawed</b></sub></a></td>
+    <td align="center"><a href="(https://github.com/AwaisZahid331/AwaisZahid331)"><img src="" width="100px;" alt=""/><br /><sub><b>Awais Zahid</b></sub></a></td>
     
   </tr>
 </table>
