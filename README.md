@@ -3,13 +3,6 @@
 ## Modern and Professional Open-Source Portfolio Website for Tech Professinals!
 
 
-<p align="center">
-  <kbd>
-    <img src="https://github.com/Mubeen-jawed/techfolio/assets/110166209/8321e254-1de4-4a76-9dbf-046f5acdea88"></img>
-  </kbd>
-</p>
-
-
 Just change `src/App.jsx` to get your personal portfolio. Feel free to use it as-is or personalize it as much as you want.
 
 If you'd like to **contribute** and make this much better for other users, have a look at [Issues](https://github.com/Mubeen-jawed/techfolio/issues).
