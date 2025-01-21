@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
-import {  FaTimes, FaTwitter } from "react-icons/fa";
+import { FaTimes, FaTwitter } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { FiTwitter } from "react-icons/fi";
 import { FiLinkedin } from "react-icons/fi";
@@ -169,9 +169,8 @@ const Navbar = (props) => {
           {/* Hire Me Button Click UI */}
 
           <div
-            className={`${
-              hireMeClick ? "opacity-100" : "invisible opacity-0"
-            } hireme z-50 max-w-6xl xl:m-auto transition-all flex ease-out duration-200 flex-col justify-center items-center rounded-2xl fixed top-6 bottom-4 sm:top-3 sm:bottom-3 btn-shadow`}
+            className={`${hireMeClick ? "opacity-100" : "invisible opacity-0"
+              } hireme z-50 max-w-6xl xl:m-auto transition-all flex ease-out duration-200 flex-col justify-center items-center rounded-2xl fixed top-6 bottom-4 sm:top-3 sm:bottom-3 btn-shadow`}
             style={{ backgroundColor: "#212428" }}
           >
             {/* <h2 className="font-semibold lg:text-3xl text-2xl mt-3 text-gray-300 font-primary pl-12">
@@ -195,71 +194,97 @@ const Navbar = (props) => {
                 <FaTimes className="red-text" />
               </button>
             </div>
+            <form
+  onSubmit={(e) => {
+    e.preventDefault(); // Prevent default form submission
+    const formData = {
+      fullName: document.getElementById("fullName").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("message").value,
+    };
 
-            <div className="flex flex-col justify-evenly font-secondary items-center w-full sm:px-12 sm:pt-4 sm:pb-6 px-6 py-3">
-              <label
-                className=" flex flex-col w-full sm:text-sm text-xs text-gray-300"
-                htmlFor="fullName"
-              >
-                Full Name
-                <input
-                  className="text-gray-200 focus:outline-none capitalize pl-3 mt-2 bg-transparent w-full h-10 rounded-lg border border-gray-600 border-solid"
-                  id="fullName"
-                  type="text"
-                  placeholder="eg: Jhon Doe"
-                  style={{ backgroundColor: "#212428" }}
-                />
-              </label>
-              <label
-                className="sm:mt-4 mt-3 flex flex-col w-full sm:text-sm text-xs text-gray-300"
-                htmlFor="email"
-              >
-                Email
-                <input
-                  className="text-gray-200 focus:outline-none pl-3 mt-2 bg-transparent w-full h-10 rounded-lg border border-gray-600 border-solid"
-                  id="email"
-                  type="email"
-                  placeholder="Eg: jhondoe@gmail.com"
-                />
-              </label>
-              <label
-                className="text-gray-300 sm:mt-4 mt-3 flex flex-col w-full sm:text-sm text-xs"
-                htmlFor="subject"
-              >
-                Subject
-                <input
-                  placeholder="eg: Website Development"
-                  className="text-gray-200 focus:outline-none capitalize pl-2 mt-3 bg-transparent w-full h-10 rounded-lg border border-gray-600 border-solid"
-                  id="subject"
-                  type="text"
-                />
-              </label>
+    // Send the form data as JSON
+    fetch("https://formspree.io/f/meoejoyo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Specify JSON content type
+      },
+      body: JSON.stringify(formData), // Convert form data to JSON
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Form submitted successfully!");
+        } else {
+          alert("Failed to submit the form. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+      });
+  }}
+  className="flex flex-col justify-evenly font-secondary items-center w-full sm:px-12 sm:pt-4 sm:pb-6 px-6 py-3"
+>
+  <label
+    className="flex flex-col w-full sm:text-sm text-xs text-gray-300"
+    htmlFor="fullName"
+  >
+    Full Name
+    <input
+      className="text-gray-200 focus:outline-none capitalize pl-3 mt-2 bg-transparent w-full h-10 rounded-lg border border-gray-600 border-solid"
+      id="fullName"
+      type="text"
+      placeholder="eg: John Doe"
+      style={{ backgroundColor: "#212428" }}
+    />
+  </label>
+  <label
+    className="sm:mt-4 mt-3 flex flex-col w-full sm:text-sm text-xs text-gray-300"
+    htmlFor="email"
+  >
+    Email
+    <input
+      className="text-gray-200 focus:outline-none pl-3 mt-2 bg-transparent w-full h-10 rounded-lg border border-gray-600 border-solid"
+      id="email"
+      type="email"
+      placeholder="Eg: johndoe@gmail.com"
+    />
+  </label>
+  <label
+    className="text-gray-300 sm:mt-4 mt-3 flex flex-col w-full sm:text-sm text-xs"
+    htmlFor="subject"
+  >
+    Subject
+    <input
+      placeholder="eg: Website Development"
+      className="text-gray-200 focus:outline-none capitalize pl-2 mt-3 bg-transparent w-full h-10 rounded-lg border border-gray-600 border-solid"
+      id="subject"
+      type="text"
+    />
+  </label>
+  <label
+    className="sm:mt-4 mt-3 flex flex-col w-full font-secondary sm:text-sm text-xs text-gray-300"
+    htmlFor="message"
+  >
+    What Service Do You Want?
+    <textarea
+      className="text-gray-200 focus:outline-none capitalize pl-3 pt-3 mt-2 bg-transparent w-full rounded-lg border border-gray-600 border-solid"
+      id="message"
+      rows="5"
+      placeholder="eg: I want you to develop a tinder-like website for dogs and cats which should be..."
+    ></textarea>
+  </label>
+  <div className="flex justify-end items-end w-full absolute bottom-0 pr-6 pb-3 pt-2">
+    <button
+      type="submit"
+      className="text-red-600 sm:w-28 w-20 rounded-md text-xs py-2 btn-shadow ml-5 mr-3 sm:ml-8 sm:mr-6 sm:font-semibold sm:text-base"
+    >
+      SUBMIT
+    </button>
+  </div>
+</form>
 
-              <label
-                className="sm:mt-4 mt-3 flex flex-col w-full font-secondary sm:text-sm text-xs text-gray-300"
-                htmlFor="message"
-              >
-                What Service Do You Want?
-                <textarea
-                  className="text-gray-200 focus:outline-none capitalize pl-3 pt-3 mt-2 bg-transparent w-full rounded-lg border border-gray-600 border-solid"
-                  id="message"
-                  rows="5"
-                  placeholder="eg: I want you to develop a tinder like website for dogs and cats which should be..."
-                ></textarea>
-              </label>
-            </div>
-
-            <div className="flex justify-end items-end w-full absolute bottom-0 pr-6 pb-3 pt-2">
-              <button
-                onClick={() => {
-                  setHireMeClick(false);
-                  props.onHireMeClick(hireMeClick);
-                }}
-                className="text-red-600 sm:w-28 w-20 rounded-md text-xs py-2 btn-shadow ml-5 mr-3 sm:ml-8 sm:mr-6 sm:font-semibold sm:text-base"
-              >
-                SUBMIT
-              </button>
-            </div>
           </div>
 
           <button
@@ -272,9 +297,8 @@ const Navbar = (props) => {
           {/* Small screen navbar UI */}
 
           <div
-            className={`${
-              hamBurgerClick ? "opacity-100 " : "opacity-0 invisible"
-            } fixed flex overflow-y-auto flex-col top-0 bottom-0 left-0 py-6 px-6 transition-all duration-500 ease-out mr-10`}
+            className={`${hamBurgerClick ? "opacity-100 " : "opacity-0 invisible"
+              } fixed flex overflow-y-auto flex-col top-0 bottom-0 left-0 py-6 px-6 transition-all duration-500 ease-out mr-10`}
             style={{
               backgroundColor: "#191b1e",
               width: "370px",

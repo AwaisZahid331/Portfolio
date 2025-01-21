@@ -101,10 +101,10 @@ const App = () => {
     "https://www.sourcecodester.com/sites/default/files/images/rems/bts.png";
   const pobox6Title = "Budget Tracker";
   const pobox6NumOfLikes = "15";
-  
 
 
-  
+
+
   /////////////////////////////////////////////////////////   TESTIMONIAL   //////////////////////////////////////////////////////////
 
   const teimg =
@@ -121,10 +121,10 @@ const App = () => {
   collaborative and enjoyable partnership.`;
   const terating = "⭐⭐⭐⭐⭐";
 
-  
-
-
  
+
+
+
 
   /////////////////////////////////////////////////////////   PRICING   //////////////////////////////////////////////////////////
 
@@ -223,7 +223,7 @@ const App = () => {
             box6Img={pobox6Img}
             box6NumOfLikes={pobox6NumOfLikes}
             box6Title={pobox6Title}
-          
+
           />
           <Seperator />
           <Testimonial
@@ -236,8 +236,9 @@ const App = () => {
             description={tedescription}
             rating={terating}
           />
-         
-         
+          
+
+
           <Seperator />
           <Pricing
             basicTitle={prBasicTitle}
@@ -261,7 +262,7 @@ const App = () => {
             box2Miuntes={blbox2Time}
             box2Title={blbox2Title}
             box3Img={blbox3Img}
-            
+
             box3Category={blbox3Category}
             box3Miuntes={blbox3Time}
             box3Title={blbox3Title}
